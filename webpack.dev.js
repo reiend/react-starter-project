@@ -9,9 +9,6 @@ const ROOT_PATH = {
   src: path.resolve(__dirname, `src`),
 };
 
-const CustomExtractor = (content) => {
-  return content.match(/[A-z0-9-:\/\@\>]+/g) || [];
-};
 
 module.exports = {
   mode: "development",
