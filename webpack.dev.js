@@ -27,7 +27,7 @@ module.exports = {
       "@components": `${ROOT_PATH.src}/res/components`,
 
       // libs
-      "@libs": `${ROOT_PATH.src}/lib`,
+      "@libs": `${ROOT_PATH.src}/libs`,
 
       // globals
       "@globals": `${ROOT_PATH.src}/res/globals`,
