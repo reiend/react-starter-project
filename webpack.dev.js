@@ -81,18 +81,7 @@ module.exports = {
           target: "es2015", // Syntax to compile to (see options below for possible values)
         },
       },
-      // {
-      //   // transpiler
-      //   test: /\.m?(js|jsx)$/,
-      //   exclude: /(node_modules|bower_components)/,
-      //   use: {
-      //     loader: "babel-loader",
-      //     options: {
-      //       presets: ["@babel/preset-env", "@babel/preset-react"],
-      //       targets: { esmodules: true },
-      //     },
-      //   },
-      // },
+
       //  pulling assets
       {
         test: /\.(png|svg|jpg|jpeg|gif|jfif)$/i,
