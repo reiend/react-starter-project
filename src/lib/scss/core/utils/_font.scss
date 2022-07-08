@@ -1,0 +1,132 @@
+@use "../responsive/breakpoints" as *;
+@use "../../core-controllers/globals/variables";
+
+// font-size
+// $name      - for selector name
+// $from      - for font size n starting range
+// $to        - for font size nth last range
+// $threshold - determine the individual font size growth
+// $intentity - dertermine the group growth
+$font-size-selector: "fsz";
+@mixin custom-font-size(
+  $name: ".#{$font-size-selector}",
+  $base: variables.$base-font-size,
+  $from: 1,
+  $to: 10,
+  $threshold: 0.095,
+  $intentity: 1
+) {
+  @for $i from $from through $to {
+    #{$name}-#{$i} {
+      font-size: $base * ($i * $threshold + $intentity);
+    }
+  }
+}
+
+// since its class you can use it as;
+// fsz-1 -> fsz-10
+@include custom-font-size;
+
+// responsive font size
+@include \3xsm {
+  @include custom-font-size($name: ".\\@3xsm\\:#{$font-size-selector}");
+}
+
+@include \2xsm {
+  @include custom-font-size($name: ".\\@2xsm\\:#{$font-size-selector}");
+}
+
+@include xsm {
+  @include custom-font-size($name: ".\\@xsm\\:#{$font-size-selector}");
+}
+
+@include sm {
+  @include custom-font-size($name: ".\\@sm\\:#{$font-size-selector}");
+}
+
+@include md {
+  @include custom-font-size($name: ".\\@md\\:#{$font-size-selector}");
+}
+
+@include lg {
+  @include custom-font-size($name: ".\\@lg\\:#{$font-size-selector}");
+}
+
+// end of font-size
+
+// font-weight
+// $name  - for selector name
+// $from  - for font weight n starting range
+// $to    - for font weight nth last range
+$font-weight-selector: "fw";
+@mixin custom-font-weight(
+  $name: ".#{$font-weight-selector}",
+  $from: 1,
+  $to: 9
+) {
+  @for $i from $from through $to {
+    #{$name}-#{$i} {
+      font-weight: $i * 100;
+    }
+  }
+}
+
+// since its class you can use it as;
+// fw-1 -> fw-9
+@include custom-font-weight;
+
+// responsive font-weight
+@include \3xsm {
+  @include custom-font-weight($name: ".\\@3xsm\\:#{$font-weight-selector}");
+}
+@include \2xsm {
+  @include custom-font-weight($name: ".\\@2xsm\\:#{$font-weight-selector}");
+}
+@include xsm {
+  @include custom-font-weight($name: ".\\@xsm\\:#{$font-weight-selector}");
+}
+@include sm {
+  @include custom-font-weight($name: ".\\@sm\\:#{$font-weight-selector}");
+}
+@include md {
+  @include custom-font-weight($name: ".\\@md\\:#{$font-weight-selector}");
+}
+@include lg {
+  @include custom-font-weight($name: ".\\@lg\\:#{$font-weight-selector}");
+}
+@include xlg {
+  @include custom-font-weight($name: ".\\@xlg\\:#{$font-weight-selector}");
+}
+@include \2xlg {
+  @include custom-font-weight($name: ".\\@2xlg\\:#{$font-weight-selector}");
+}
+@include \3xlg {
+  @include custom-font-weight($name: ".\\@3xlg\\:#{$font-weight-selector}");
+}
+// end of font-weight
+
+// font-style
+// $normal-selector  - selector for font style normal
+// $italic-selector  - selector for font style italic
+// $oblique-selector - selector for font style oblique
+$font-style-selector: "fs";
+@mixin custom-font-style(
+  $normal-selector: ".#{$font-style-selector}-no",
+  $italic-selector: ".#{$font-style-selector}-it",
+  $oblique-selector: ".#{$font-style-selector}-ob"
+) {
+  $font-styles: (
+    $normal-selector: normal,
+    $italic-selector: italic,
+    $oblique-selector: oblique,
+  );
+
+  @each $key, $value in $font-styles {
+    #{$key} {
+      font-style: $value;
+    }
+  }
+}
+
+@include custom-font-style;
+// end of font-style

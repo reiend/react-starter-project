@@ -1,0 +1,85 @@
+// helper function for converting px to em
+// base 16px
+@function pxToEm($px) {
+  @return #{$px / 16px}em;
+}
+
+
+// List of breakpoints
+$\3xsm: pxToEm(320px);
+$\2xsm: pxToEm(375px);
+$xsm:   pxToEm(425px);
+$sm:    pxToEm(640px);
+$md:    pxToEm(768px);
+$lg:    pxToEm(1024px);
+$xlg:   pxToEm(1280px);
+$\2xlg: pxToEm(1440px);
+$\3xlg: pxToEm(1536px);
+
+@mixin min-width($min-width) {
+  @media only screen and (min-width: $min-width) {
+    @content;
+  }
+}
+
+@mixin \3xsm {
+  @include min-width($min-width: $\3xsm) {
+    @content;
+  }
+}
+
+@mixin \2xsm {
+  @include min-width($min-width: $\2xsm) {
+    @content;
+  }
+}
+
+@mixin xsm {
+  @include min-width($min-width: $xsm) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @include min-width($min-width: $sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include min-width($min-width: $md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include min-width($min-width: $lg) {
+    @content;
+  }
+}
+
+@mixin xlg {
+  @include min-width($min-width: $xlg) {
+    @content;
+  }
+}
+
+@mixin \2xlg {
+  @include min-width($min-width: $\2xlg) {
+    @content;
+  }
+}
+
+@mixin \3xlg {
+  @include min-width($min-width: $\3xlg) {
+    @content;
+  }
+}
+
+// for making custom breakpoint
+@mixin custom-breakpoint($breakpoint) {
+  @include min-width($min-width: $breakpoint) {
+    @content;
+  }
+}
+

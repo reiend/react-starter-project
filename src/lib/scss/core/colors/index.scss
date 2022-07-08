@@ -1,0 +1,264 @@
+@use "../responsive/breakpoints" as *;
+@use "../../core-controllers/color";
+
+@mixin background-color-lighten($color, $percent) {
+  background-color: mix(white, $color, $percent);
+}
+
+@mixin background-color-darken($color, $percent) {
+  background-color: mix(black, $color, $percent);
+}
+
+@mixin font-color-lighten($color, $percent) {
+  color: mix(white, $color, $percent);
+}
+
+@mixin font-color-darken($color, $percent) {
+  color: mix(black, $color, $percent);
+}
+
+// font color
+// $name        - for selector name
+// $colors      - a map of colors
+// $mix-percent - for determining a percent of mix of different variation for light and dark
+$font-color-selector: "fc";
+@mixin custom-font-color(
+  $name: ".#{$font-color-selector}",
+  $colors: color.$colors,
+  $mix-percent: 8,
+  $hover-selector: "hvr",
+  $focus-selector: "fcs",
+  $focus-within-selector: "fcs-wthn"
+) {
+  $action-selectors: (
+    $hover-selector: hover,
+    $focus-selector: focus,
+    $focus-within-selector: focus-within,
+  );
+  @each $key, $value in $colors {
+    #{$name}-#{$key} {
+      color: $value;
+    }
+
+    // font-color variation action selectors
+    @each $k, $v in $action-selectors {
+      #{$name}-\>#{$k}-#{$key}:#{$v} {
+        color: $value;
+      }
+    }
+    // end of font-color variation action selectors
+
+    // font color variation
+    @for $i from 1 through 10 {
+      #{$name}-#{$key}-L#{$i} {
+        @include font-color-lighten(
+          $color: $value,
+          $percent: $i * $mix-percent
+        );
+      }
+    }
+
+    @for $i from 1 through 10 {
+      #{$name}-#{$key}-D#{$i} {
+        @include font-color-darken($color: $value, $percent: $i * $mix-percent);
+      }
+    }
+
+    // font-color variation action selectors
+    @each $k, $v in $action-selectors {
+      @for $i from 1 through 10 {
+        #{$name}-\>#{$k}-#{$key}-L#{$i}:#{$v} {
+          @include font-color-lighten(
+            $color: $value,
+            $percent: $i * $mix-percent
+          );
+        }
+      }
+
+      @for $i from 1 through 10 {
+        #{$name}-\>#{$k}-#{$key}-D#{$i}:#{$v} {
+          @include font-color-darken(
+            $color: $value,
+            $percent: $i * $mix-percent
+          );
+        }
+      }
+    }
+    // end font-color variation action selectors
+
+    // end of font color variation
+  }
+}
+
+// since it uses class
+// .fc-colorname-L1 -> fc-colorname-L10
+// .fc-colorname-D1 -> fc-colorname-D10
+// .fc-colorname
+// visit core core-controllers for more information about colors
+// you can also add colors there or use the custom background color mixin
+@include custom-font-color;
+
+// responsive font-color
+@include \3xsm {
+  @include custom-font-color($name: ".\\@3xsm\\:#{$font-color-selector}");
+}
+@include \2xsm {
+  @include custom-font-color($name: ".\\@2xsm\\:#{$font-color-selector}");
+}
+@include xsm {
+  @include custom-font-color($name: ".\\@xsm\\:#{$font-color-selector}");
+}
+@include sm {
+  @include custom-font-color($name: ".\\@sm\\:#{$font-color-selector}");
+}
+@include md {
+  @include custom-font-color($name: ".\\@md\\:#{$font-color-selector}");
+}
+@include lg {
+  @include custom-font-color($name: ".\\@lg\\:#{$font-color-selector}");
+}
+@include xlg {
+  @include custom-font-color($name: ".\\@xlg\\:#{$font-color-selector}");
+}
+@include \2xlg {
+  @include custom-font-color($name: ".\\@2xlg\\:#{$font-color-selector}");
+}
+@include \3xlg {
+  @include custom-font-color($name: ".\\@3xlg\\:#{$font-color-selector}");
+}
+// end of font color
+
+// background color
+// $name        - for selector name
+// $colors      - a map of colors
+// $mix-percent - for determining a percent of mix of different variation for light and dark
+$background-color-selector: "bg";
+@mixin custom-background-color(
+  $name: ".#{$background-color-selector}",
+  $colors: color.$colors,
+  $mix-percent: 8,
+  $hover-selector: "hvr",
+  $focus-selector: "fcs",
+  $focus-within-selector: "fcs-wthn"
+) {
+  $action-selectors: (
+    $hover-selector: hover,
+    $focus-selector: focus,
+    $focus-within-selector: focus-within,
+  );
+  @each $key, $value in $colors {
+    #{$name}-#{$key} {
+      background-color: $value;
+    }
+
+    // background-color variation action selectors
+    @each $k, $v in $action-selectors {
+      #{$name}-\>#{$k}-#{$key}:#{$v} {
+        background-color: $value;
+      }
+    }
+    // end of background-color variation action selectors
+
+    // background-color variation
+    // dont create color variations for white and back
+    @if ($value != "black") and ($value != "white") {
+      @for $i from 1 through 10 {
+        #{$name}-#{$key}-L#{$i} {
+          @include background-color-lighten(
+            $color: $value,
+            $percent: $i * $mix-percent
+          );
+        }
+      }
+
+      @for $i from 1 through 10 {
+        #{$name}-#{$key}-D#{$i} {
+          @include background-color-darken(
+            $color: $value,
+            $percent: $i * $mix-percent
+          );
+        }
+      }
+
+      // background-color variation action selectors
+      @each $k, $v in $action-selectors {
+        @for $i from 1 through 10 {
+          #{$name}-\>#{$k}-#{$key}-L#{$i}:#{$v} {
+            @include background-color-lighten(
+              $color: $value,
+              $percent: $i * $mix-percent
+            );
+          }
+        }
+
+        @for $i from 1 through 10 {
+          #{$name}-\>#{$k}-#{$key}-D#{$i}:#{$v} {
+            @include background-color-darken(
+              $color: $value,
+              $percent: $i * $mix-percent
+            );
+          }
+        }
+      }
+      // end of background-color variation action action-selectors
+    }
+    // end of background-color variation
+  }
+}
+
+// since it uses class
+// .bg-colorname-L1 -> bg-colorname-L10
+// .bg-colorname-D1 -> bg-colorname-D10
+// .bg-colorname
+// visit core core-controllers for more information about colors
+// you can also add colors there or use the custom background color mixin
+@include custom-background-color;
+
+// responsive background-color
+@include \3xsm {
+  @include custom-background-color(
+    $name: ".\\@3xsm\\:#{$background-color-selector}"
+  );
+}
+@include \2xsm {
+  @include custom-background-color(
+    $name: ".\\@2xsm\\:#{$background-color-selector}"
+  );
+}
+@include xsm {
+  @include custom-background-color(
+    $name: ".\\@xsm\\:#{$background-color-selector}"
+  );
+}
+@include sm {
+  @include custom-background-color(
+    $name: ".\\@sm\\:#{$background-color-selector}"
+  );
+}
+@include md {
+  @include custom-background-color(
+    $name: ".\\@md\\:#{$background-color-selector}"
+  );
+}
+@include lg {
+  @include custom-background-color(
+    $name: ".\\@lg\\:#{$background-color-selector}"
+  );
+}
+@include xlg {
+  @include custom-background-color(
+    $name: ".\\@xlg\\:#{$background-color-selector}"
+  );
+}
+@include \2xlg {
+  @include custom-background-color(
+    $name: ".\\@2xlg\\:#{$background-color-selector}"
+  );
+}
+@include \3xlg {
+  @include custom-background-color(
+    $name: ".\\@3xlg\\:#{$background-color-selector}"
+  );
+}
+// end of background color
+

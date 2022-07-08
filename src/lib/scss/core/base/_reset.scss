@@ -1,0 +1,30 @@
+@use "../../core-fonts/montserrat";
+@use "../../core-controllers/globals/variables";
+
+// css reset
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+// make 1rem = 10px
+:root {
+  font-size: variables.$root-font-size;
+}
+
+body {
+  font-family: "Montserrat", "sans-serif";
+  font-size: variables.$base-font-size;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

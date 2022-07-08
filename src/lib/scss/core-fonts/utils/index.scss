@@ -1,0 +1,7 @@
+@mixin font-info($family, $style, $weight, $url, $format) {
+  font-family: $family;
+  font-weight: $weight;
+  font-style: $style;
+  src: url($url) format($format);
+}
+
