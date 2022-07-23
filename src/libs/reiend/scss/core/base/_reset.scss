@@ -1,5 +1,5 @@
-@use "../../core-fonts/montserrat";
-@use "../../core-controllers/globals/variables";
+@use '../../core-fonts/montserrat';
+@use '../../core-controllers/globals/variables';
 
 // css reset
 * {
@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: "Montserrat", "sans-serif";
+  font-family: 'Montserrat', 'sans-serif';
   font-size: variables.$base-font-size;
 }
 

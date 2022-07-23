@@ -7,7 +7,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin'); /* for cleaning unuse
 const tailwindcss = require('tailwindcss');
 
 const ROOT_PATH = {
-  src: path.resolve(__dirname, `src`),
+  src: path.resolve(__dirname, `src`)
 };
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
   output: {
     filename: '[name][contenthash].bundle.js',
     path: path.resolve(__dirname, './dist'),
-    clean: true,
+    clean: true
   },
 
   resolve: {
@@ -43,9 +43,9 @@ module.exports = {
         '.jsx',
         '.js',
         '.json',
-        '...',
-      ] /* ... use default extention */,
-    },
+        '...'
+      ] /* ... use default extention */
+    }
   },
 
   module: {
@@ -61,61 +61,62 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [[tailwindcss, 'postcss-preset-env', 'autoprefixer']],
-              },
-            },
+                plugins: [[tailwindcss, 'postcss-preset-env', 'autoprefixer']]
+              }
+            }
           },
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /\.m?(js|jsx)$/,
         loader: 'esbuild-loader',
         options: {
           loader: 'jsx', // Remove this if you're not using JSX
-          target: 'es2015', // Syntax to compile to (see options below for possible values)
-        },
+          target: 'es2015' // Syntax to compile to (see options below for possible values)
+        }
       },
 
       //  pulling assets
       {
         test: /\.(png|svg|jpg|jpeg|gif|jfif)$/i,
-        type: 'asset/resource',
+        type: 'asset/resource'
       },
 
       // pulling fonts
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
-      },
-    ],
+        type: 'asset/resource'
+      }
+    ]
   },
 
   plugins: [
     // create root html
     new HtmlWebpackPlugin({
       title: 'title-here',
-      filename: 'index.html',
+      filename: 'index.html'
     }),
     // new Dotenv(),
     // css extractor from js
     new MinicssExtractPlugin({
-      filename: '[name].bundle.css',
+      filename: '[name].bundle.css'
     }),
     // unused style clean up
     new PurgecssPlugin({
       paths: glob.sync(`${ROOT_PATH.src}/**/*`, { nodir: true }),
-      defaultExtractor: content => content.match(/[/@/:\w-/:/-/>]+(?<!:)/g) || [],
-    }),
+      defaultExtractor: content =>
+        content.match(/[/@/:\w-/:/-/>]+(?<!:)/g) || []
+    })
   ],
 
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'dist')
     },
     open: true,
     hot: true,
     compress: true,
-    port: 9002,
-  },
+    port: 9002
+  }
 };

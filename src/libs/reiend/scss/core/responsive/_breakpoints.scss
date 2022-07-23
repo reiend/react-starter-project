@@ -4,15 +4,14 @@
   @return #{$px / 16px}em;
 }
 
-
 // List of breakpoints
 $\3xsm: pxToEm(320px);
 $\2xsm: pxToEm(375px);
-$xsm:   pxToEm(425px);
-$sm:    pxToEm(640px);
-$md:    pxToEm(768px);
-$lg:    pxToEm(1024px);
-$xlg:   pxToEm(1280px);
+$xsm: pxToEm(425px);
+$sm: pxToEm(640px);
+$md: pxToEm(768px);
+$lg: pxToEm(1024px);
+$xlg: pxToEm(1280px);
 $\2xlg: pxToEm(1440px);
 $\3xlg: pxToEm(1536px);
 
@@ -82,4 +81,3 @@ $\3xlg: pxToEm(1536px);
     @content;
   }
 }
-

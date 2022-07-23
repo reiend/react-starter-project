@@ -1,5 +1,5 @@
-@use "../responsive/breakpoints" as *;
-@use "../../core-controllers/color";
+@use '../responsive/breakpoints' as *;
+@use '../../core-controllers/color';
 
 @mixin background-color-lighten($color, $percent) {
   background-color: mix(white, $color, $percent);
@@ -21,19 +21,19 @@
 // $name        - for selector name
 // $colors      - a map of colors
 // $mix-percent - for determining a percent of mix of different variation for light and dark
-$font-color-selector: "fc";
+$font-color-selector: 'fc';
 @mixin custom-font-color(
-  $name: ".#{$font-color-selector}",
+  $name: '.#{$font-color-selector}',
   $colors: color.$colors,
   $mix-percent: 8,
-  $hover-selector: "hvr",
-  $focus-selector: "fcs",
-  $focus-within-selector: "fcs-wthn"
+  $hover-selector: 'hvr',
+  $focus-selector: 'fcs',
+  $focus-within-selector: 'fcs-wthn'
 ) {
   $action-selectors: (
     $hover-selector: hover,
     $focus-selector: focus,
-    $focus-within-selector: focus-within,
+    $focus-within-selector: focus-within
   );
   @each $key, $value in $colors {
     #{$name}-#{$key} {
@@ -100,31 +100,31 @@ $font-color-selector: "fc";
 
 // responsive font-color
 @include \3xsm {
-  @include custom-font-color($name: ".\\@3xsm\\:#{$font-color-selector}");
+  @include custom-font-color($name: '.\\@3xsm\\:#{$font-color-selector}');
 }
 @include \2xsm {
-  @include custom-font-color($name: ".\\@2xsm\\:#{$font-color-selector}");
+  @include custom-font-color($name: '.\\@2xsm\\:#{$font-color-selector}');
 }
 @include xsm {
-  @include custom-font-color($name: ".\\@xsm\\:#{$font-color-selector}");
+  @include custom-font-color($name: '.\\@xsm\\:#{$font-color-selector}');
 }
 @include sm {
-  @include custom-font-color($name: ".\\@sm\\:#{$font-color-selector}");
+  @include custom-font-color($name: '.\\@sm\\:#{$font-color-selector}');
 }
 @include md {
-  @include custom-font-color($name: ".\\@md\\:#{$font-color-selector}");
+  @include custom-font-color($name: '.\\@md\\:#{$font-color-selector}');
 }
 @include lg {
-  @include custom-font-color($name: ".\\@lg\\:#{$font-color-selector}");
+  @include custom-font-color($name: '.\\@lg\\:#{$font-color-selector}');
 }
 @include xlg {
-  @include custom-font-color($name: ".\\@xlg\\:#{$font-color-selector}");
+  @include custom-font-color($name: '.\\@xlg\\:#{$font-color-selector}');
 }
 @include \2xlg {
-  @include custom-font-color($name: ".\\@2xlg\\:#{$font-color-selector}");
+  @include custom-font-color($name: '.\\@2xlg\\:#{$font-color-selector}');
 }
 @include \3xlg {
-  @include custom-font-color($name: ".\\@3xlg\\:#{$font-color-selector}");
+  @include custom-font-color($name: '.\\@3xlg\\:#{$font-color-selector}');
 }
 // end of font color
 
@@ -132,19 +132,19 @@ $font-color-selector: "fc";
 // $name        - for selector name
 // $colors      - a map of colors
 // $mix-percent - for determining a percent of mix of different variation for light and dark
-$background-color-selector: "bg";
+$background-color-selector: 'bg';
 @mixin custom-background-color(
-  $name: ".#{$background-color-selector}",
+  $name: '.#{$background-color-selector}',
   $colors: color.$colors,
   $mix-percent: 8,
-  $hover-selector: "hvr",
-  $focus-selector: "fcs",
-  $focus-within-selector: "fcs-wthn"
+  $hover-selector: 'hvr',
+  $focus-selector: 'fcs',
+  $focus-within-selector: 'fcs-wthn'
 ) {
   $action-selectors: (
     $hover-selector: hover,
     $focus-selector: focus,
-    $focus-within-selector: focus-within,
+    $focus-within-selector: focus-within
   );
   @each $key, $value in $colors {
     #{$name}-#{$key} {
@@ -161,7 +161,7 @@ $background-color-selector: "bg";
 
     // background-color variation
     // dont create color variations for white and back
-    @if ($value != "black") and ($value != "white") {
+    @if ($value != 'black') and ($value != 'white') {
       @for $i from 1 through 10 {
         #{$name}-#{$key}-L#{$i} {
           @include background-color-lighten(
@@ -217,48 +217,47 @@ $background-color-selector: "bg";
 // responsive background-color
 @include \3xsm {
   @include custom-background-color(
-    $name: ".\\@3xsm\\:#{$background-color-selector}"
+    $name: '.\\@3xsm\\:#{$background-color-selector}'
   );
 }
 @include \2xsm {
   @include custom-background-color(
-    $name: ".\\@2xsm\\:#{$background-color-selector}"
+    $name: '.\\@2xsm\\:#{$background-color-selector}'
   );
 }
 @include xsm {
   @include custom-background-color(
-    $name: ".\\@xsm\\:#{$background-color-selector}"
+    $name: '.\\@xsm\\:#{$background-color-selector}'
   );
 }
 @include sm {
   @include custom-background-color(
-    $name: ".\\@sm\\:#{$background-color-selector}"
+    $name: '.\\@sm\\:#{$background-color-selector}'
   );
 }
 @include md {
   @include custom-background-color(
-    $name: ".\\@md\\:#{$background-color-selector}"
+    $name: '.\\@md\\:#{$background-color-selector}'
   );
 }
 @include lg {
   @include custom-background-color(
-    $name: ".\\@lg\\:#{$background-color-selector}"
+    $name: '.\\@lg\\:#{$background-color-selector}'
   );
 }
 @include xlg {
   @include custom-background-color(
-    $name: ".\\@xlg\\:#{$background-color-selector}"
+    $name: '.\\@xlg\\:#{$background-color-selector}'
   );
 }
 @include \2xlg {
   @include custom-background-color(
-    $name: ".\\@2xlg\\:#{$background-color-selector}"
+    $name: '.\\@2xlg\\:#{$background-color-selector}'
   );
 }
 @include \3xlg {
   @include custom-background-color(
-    $name: ".\\@3xlg\\:#{$background-color-selector}"
+    $name: '.\\@3xlg\\:#{$background-color-selector}'
   );
 }
 // end of background color
-

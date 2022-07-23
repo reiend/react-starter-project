@@ -1,95 +1,95 @@
-@use "../utils/index.scss" as *;
+@use '../utils/index.scss' as *;
 
-$url: "./core-fonts/montserrat/info/";
+$url: './core-fonts/montserrat/info/';
 
 // bold
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     normal,
     100,
-    "#{$url}Montserrat-Thin.otf",
-    "opentype"
+    '#{$url}Montserrat-Thin.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     normal,
     200,
-    "#{$url}Montserrat-ExtraLight.otf",
-    "opentype"
+    '#{$url}Montserrat-ExtraLight.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     normal,
     300,
-    "#{$url}Montserrat-Light.otf",
-    "opentype"
+    '#{$url}Montserrat-Light.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     normal,
     400,
-    "#{$url}Montserrat-Regular.otf",
-    "opentype"
+    '#{$url}Montserrat-Regular.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     normal,
     500,
-    "#{$url}Montserrat-Medium.otf",
-    "opentype"
+    '#{$url}Montserrat-Medium.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     normal,
     600,
-    "#{$url}Montserrat-SemiBold.otf",
-    "opentype"
+    '#{$url}Montserrat-SemiBold.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     normal,
     700,
-    "#{$url}Montserrat-Bold.otf",
-    "opentype"
+    '#{$url}Montserrat-Bold.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     normal,
     800,
-    "#{$url}Montserrat-ExtraBold.otf",
-    "opentype"
+    '#{$url}Montserrat-ExtraBold.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     normal,
     900,
-    "#{$url}Montserrat-Black.otf",
-    "opentype"
+    '#{$url}Montserrat-Black.otf',
+    'opentype'
   );
 }
 // end of bold
@@ -98,91 +98,91 @@ $url: "./core-fonts/montserrat/info/";
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     italic,
     100,
-    "#{$url}Montserrat-ThinItalic.otf",
-    "opentype"
+    '#{$url}Montserrat-ThinItalic.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     italic,
     200,
-    "#{$url}Montserrat-ExtraLightItalic.otf",
-    "opentype"
+    '#{$url}Montserrat-ExtraLightItalic.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     italic,
     300,
-    "#{$url}Montserrat-LightItalic.otf",
-    "opentype"
+    '#{$url}Montserrat-LightItalic.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     italic,
     400,
-    "#{$url}Montserrat-Italic.otf",
-    "opentype"
+    '#{$url}Montserrat-Italic.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     italic,
     500,
-    "#{$url}Montserrat-MediumItalic.otf",
-    "opentype"
+    '#{$url}Montserrat-MediumItalic.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     italic,
     600,
-    "#{$url}Montserrat-SemiBoldItalic.otf",
-    "opentype"
+    '#{$url}Montserrat-SemiBoldItalic.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     italic,
     700,
-    "#{$url}Montserrat-BoldItalic.otf",
-    "opentype"
+    '#{$url}Montserrat-BoldItalic.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     italic,
     800,
-    "#{$url}Montserrat-ExtraBoldItalic.otf",
-    "opentype"
+    '#{$url}Montserrat-ExtraBoldItalic.otf',
+    'opentype'
   );
 }
 
 @font-face {
   @include font-info(
-    "Montserrat",
+    'Montserrat',
     italic,
     900,
-    "#{$url}Montserrat-BlackItalic.otf",
-    "opentype"
+    '#{$url}Montserrat-BlackItalic.otf',
+    'opentype'
   );
 }
 // end of italic
