@@ -8,8 +8,9 @@ module.exports = {
   // Test spec file resolution pattern
   // Matches parent folder `__tests__` and filename
   // should contain `test` or `spec`.
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
+  // testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$',
   // rootDir: './__test__/',
+  testRegex: '(test|spec)\\.jsx?$',
 
   // Module file extensions for importing
   moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
@@ -18,6 +19,6 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less|scss)$': 'identity-obj-proxy',
     '^@src(.*)$': '<rootDir>/src$1',
-    '^@components(.*)$': '<rootDir>/src/res/components$1',
-  },
+    '^@components(.*)$': '<rootDir>/src/res/components$1'
+  }
 };
